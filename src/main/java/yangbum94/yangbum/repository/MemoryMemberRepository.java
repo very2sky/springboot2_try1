@@ -1,5 +1,6 @@
 package yangbum94.yangbum.repository;
 
+import org.springframework.stereotype.Repository;
 import yangbum94.yangbum.domain.Member;
 
 import java.util.*;

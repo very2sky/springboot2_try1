@@ -1,5 +1,7 @@
 package yangbum94.yangbum.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import yangbum94.yangbum.domain.Member;
 import yangbum94.yangbum.repository.MemberRepository;
 import yangbum94.yangbum.repository.MemoryMemberRepository;
