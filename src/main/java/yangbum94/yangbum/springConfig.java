@@ -3,6 +3,7 @@ package yangbum94.yangbum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yangbum94.yangbum.aop.TimeTraceAop;
 import yangbum94.yangbum.repository.*;
 import yangbum94.yangbum.service.MemberService;
 
@@ -21,8 +22,7 @@ public class springConfig {
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
-
+        return new MemberService(memberRepository);
     }
 //    @Bean
 //    public MemberRepository memberRepository(){
@@ -32,4 +32,5 @@ public class springConfig {
         //return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
  //    }
+
 }
