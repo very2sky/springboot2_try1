@@ -3,22 +3,19 @@ package yangbum94.yangbum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import yangbum94.yangbum.repository.JdbcMemberRepository;
-import yangbum94.yangbum.repository.JdbcTemplateMemberRepository;
-import yangbum94.yangbum.repository.MemberRepository;
-import yangbum94.yangbum.repository.MemoryMemberRepository;
+import yangbum94.yangbum.repository.*;
 import yangbum94.yangbum.service.MemberService;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
 public class springConfig {
 
-    private DataSource dataSource;
-
+    private EntityManager em;
     @Autowired
-    public springConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public springConfig(EntityManager em) {
+        this.em = em;
     }
 
 
@@ -32,6 +29,7 @@ public class springConfig {
 
         //return new MemoryMemberRepository();
        // return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        //return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
